@@ -2,13 +2,25 @@
 
 namespace App\Entity;
 
+use App\Entity\Category;
+use App\Entity\Client;
 use App\Repository\ProjectRepository;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=ProjectRepository::class)
+ * @ApiResource(
+ *      normalizationContext={"groups" = {"read:collection", "read:Project"}},
+ *      itemOperations={
+ *          "get" = {
+ *              "normalization_context" = {"groups" = {"read:collection", "read:item", "read:Project"}}
+ *          }
+ *      }
+ * )
  */
 class Project
 {
@@ -16,31 +28,37 @@ class Project
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({"read:collection"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Groups({"read:collection"})
      */
     private $maintitle;
 
     /**
      * @ORM\Column(type="string", length=150)
+     * @Groups({"read:item"})
      */
     private $subtitle;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"read:collection"})
      */
     private $banner;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups({"read:item"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="date")
+     * @Groups({"read:item"})
      */
     private $date;
 
@@ -51,16 +69,19 @@ class Project
 
     /**
      * @ORM\ManyToMany(targetEntity=Category::class, inversedBy="projects")
+     * @Groups({"read:collection"})
      */
     private $category;
 
     /**
      * @ORM\OneToMany(targetEntity=Image::class, mappedBy="project")
+     * @Groups({"read:item"})
      */
     private $image;
 
     /**
      * @ORM\ManyToOne(targetEntity=Client::class, inversedBy="project")
+     * @Groups({"read:item"})
      */
     private $client;
 
@@ -212,4 +233,11 @@ class Project
 
         return $this;
     }
+
+    public function __toString(): string
+        {
+            return (string) $this->getClient('name');
+        }
+
 }
+
