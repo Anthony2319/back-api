@@ -21,7 +21,6 @@ final class DashboardDto
 
     public function __construct()
     {
-        $this->faviconPath = 'favicon.ico';
         $this->title = 'EasyAdmin';
         $this->translationDomain = 'messages';
         $this->contentWidth = Crud::LAYOUT_CONTENT_DEFAULT;

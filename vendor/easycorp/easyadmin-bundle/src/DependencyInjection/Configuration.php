@@ -177,7 +177,7 @@ class Configuration implements ConfigurationInterface
                                     ->addDefaultsIfNotSet()
                                     ->info('The favicon to use in all backend pages.')
                                     ->children()
-                                        ->scalarNode('path')->cannotBeEmpty()->defaultValue('favicon.ico')->end()
+                                        ->scalarNode('path')->cannotBeEmpty()->end()
                                         ->scalarNode('mime_type')->defaultValue('image/x-icon')->end()
                                     ->end()
                                     ->beforeNormalization()
