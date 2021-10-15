@@ -18,6 +18,7 @@ class FaviconConfig
     private $mimeType;
     
     /**
+     * @default 'favicon.ico'
      * @param ParamConfigurator|mixed $value
      * @return $this
      */
