@@ -32,9 +32,9 @@ class ProjectCrudController extends AbstractCrudController
             TextEditorField::new('description'),
             //TextField::new('Image','file')->setFormType(VichImageType::class),
             //TextareaField::new('file'), 
-            //DateField::new('date'),
-            //TextField::new('Client','name')->hideOnIndex(),
-            //BooleanField::new('state'),
+            DateField::new('date'),
+            TextField::new('Client','name')->hideOnIndex(),
+            BooleanField::new('state'),
         ];
     }
 

@@ -32,7 +32,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 1 => 'string',
             ],
             'nullable' => [
-                1 => true,
+                1 => false,
             ],
             'collection' => [
                 1 => false,
