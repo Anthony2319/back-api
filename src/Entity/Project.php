@@ -57,12 +57,6 @@ class Project
     private $description;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
-     * @Groups({"read:item"})
-     */
-    private $date;
-
-    /**
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $state;
@@ -140,18 +134,6 @@ class Project
     public function setDescription(string $description): self
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getDate(): ?\DateTimeInterface
-    {
-        return $this->date;
-    }
-
-    public function setDate(\DateTimeInterface $date): self
-    {
-        $this->date = $date;
 
         return $this;
     }
