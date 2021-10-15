@@ -33,19 +33,19 @@ class Project
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=100, nullable=true)
+     * @ORM\Column(type="string", length=100)
      * @Groups({"read:collection"})
      */
     private $maintitle;
 
     /**
-     * @ORM\Column(type="string", length=150, nullable=true)
+     * @ORM\Column(type="string", length=150)
      * @Groups({"read:item"})
      */
     private $subtitle;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      * @Groups({"read:collection"})
      */
     private $banner;
@@ -57,7 +57,7 @@ class Project
     private $description;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="date")
      * @Groups({"read:item"})
      */
     private $date;
