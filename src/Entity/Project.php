@@ -57,7 +57,7 @@ class Project
     private $description;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=true)
      * @Groups({"read:item"})
      */
     private $date;
