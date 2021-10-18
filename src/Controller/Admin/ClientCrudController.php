@@ -21,7 +21,7 @@ class ClientCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('name'),
-            AssociationField::new('Project','maintitle'),
+            //AssociationField::new('Project','maintitle'),
         ];
     }
 }
