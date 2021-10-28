@@ -23,7 +23,7 @@ class ImageCrudController extends AbstractCrudController
         return [
             IdField::new('id')->onlyOnIndex(),
             TextField::new('imageFile')->setFormType(VichImageType::class),
-            TextareaField::new('file'),
+            ImageField::new('file')->setBasePath('/uploads/images/'),
         ];
     }
     
